@@ -18,14 +18,14 @@ public class GridActorTester : MonoBehaviour
     {
         if (Input.GetButtonDown("Horizontal"))
         {
-            if (Input.GetAxis("Horizontal") > 0)
+            if (Input.GetAxis("Horizontal") < 0)
             {
-                transform.position = _playGrid.GetWorldPositionCentreCell(_currentPos.x,_currentPos.y+1);
+                _newPos = _playGrid.GetWorldPositionCentreCell(_currentPos.x,_currentPos.y+1);
                 _currentPos =_currentPos+ new Vector2Int(0,1);
             }
-            else if (Input.GetAxis("Horizontal") < 0)
+            else if (Input.GetAxis("Horizontal") > 0)
             {
-                transform.position = _playGrid.GetWorldPositionCentreCell(_currentPos.x,_currentPos.y-1);
+                _newPos = _playGrid.GetWorldPositionCentreCell(_currentPos.x,_currentPos.y-1);
                 _currentPos =_currentPos+ new Vector2Int(0,-1);
             }
         }
@@ -33,16 +33,17 @@ public class GridActorTester : MonoBehaviour
         {
             if (Input.GetAxis("Vertical") > 0)
             {
-                transform.position = _playGrid.GetWorldPositionCentreCell(_currentPos.x+1,_currentPos.y);
+                _newPos = _playGrid.GetWorldPositionCentreCell(_currentPos.x+1,_currentPos.y);
                 _currentPos =_currentPos+ new Vector2Int(1,0);
             }
-            else if (Input.GetAxis("Vartical") > 0)
+            else if (Input.GetAxis("Vertical") < 0)
             {
-                transform.position = _playGrid.GetWorldPositionCentreCell(_currentPos.x-1,_currentPos.y);
-                _currentPos =_currentPos+ new Vector2Int(-1,1);
+                _newPos= _playGrid.GetWorldPositionCentreCell(_currentPos.x-1,_currentPos.y);
+                _currentPos =_currentPos+ new Vector2Int(-1,0);
             }
             
         }
+       
         transform.position = Vector3.Lerp(transform.position , _newPos, 0.5f);
     }
     
