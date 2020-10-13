@@ -38,6 +38,25 @@ public class PlayGrid
     {
         return _origine + new Vector3(x * _cellsize, 0, z * _cellsize) + new Vector3(_cellsize / 2, 0, _cellsize / 2);
     }
-    
+    public Vector3 GetWorldPositionCentreCell(Vector3 worldPos)
+    {
+        
+        return _origine + new Vector3(GetXY(worldPos).x * _cellsize, 0, GetXY(worldPos).y * _cellsize) + new Vector3(_cellsize / 2, 0, _cellsize / 2);
+    }
+
+    public Vector2 GetXY(Vector3 worldPos)
+    {
+        return new Vector2((int) (worldPos - _origine).x / _cellsize, (int) (worldPos - _origine).z / _cellsize);
+    }
+
+    public PlayTile GetPlayTile(Vector3 worldPos)
+    {
+        return PlayTiles[(int) GetXY(worldPos).x, (int) GetXY(worldPos).y];
+    }
+
+    public void SetPlayTile(Vector3 worldPos, PlayTile playTile)
+    {
+        PlayTiles[(int) GetXY(worldPos).x, (int) GetXY(worldPos).y] = playTile;
+    }
 
 }

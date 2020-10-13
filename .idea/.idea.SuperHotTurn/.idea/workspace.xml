@@ -11,13 +11,13 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/Assets/Script/CubePosition.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Script/ClasseBidon.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Script/TileMapSetter.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Script/GridActorTester.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Script/PlayGrid.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Script/PlayGridHolder.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Script/PlayTile.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Script/GridActorTester.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Script/CubePosition.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -26,11 +26,11 @@
         <option value="$PROJECT_DIR$/Assets/Script/DataHandler.cs" />
         <option value="$PROJECT_DIR$/Assets/Script/CubeController.cs" />
         <option value="$PROJECT_DIR$/Assets/Script/CubePosition.cs" />
-        <option value="$PROJECT_DIR$/Assets/Script/TileMapSetter.cs" />
-        <option value="$PROJECT_DIR$/Assets/Script/PlayTile.cs" />
-        <option value="$PROJECT_DIR$/Assets/Script/PlayGrid.cs" />
         <option value="$PROJECT_DIR$/Assets/Script/PlayGridHolder.cs" />
         <option value="$PROJECT_DIR$/Assets/Script/GridActorTester.cs" />
+        <option value="$PROJECT_DIR$/Assets/Script/PlayTile.cs" />
+        <option value="$PROJECT_DIR$/Assets/Script/PlayGrid.cs" />
+        <option value="$PROJECT_DIR$/Assets/Script/TileMapSetter.cs" />
       </list>
     </option>
   </component>
@@ -50,6 +50,7 @@
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
+    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
@@ -82,6 +83,7 @@
       <updated>1602229577522</updated>
       <workItem from="1602229618192" duration="18187000" />
       <workItem from="1602355376265" duration="2382000" />
+      <workItem from="1602586427105" duration="3861000" />
     </task>
     <servers />
   </component>
@@ -94,6 +96,10 @@
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="461" y="164" key="SettingsEditor" timestamp="1602586495125">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="461" y="164" key="SettingsEditor/0.0.1920.1040/-1920.-242.1920.1040@0.0.1920.1040" timestamp="1602586495125" />
     <state x="-884" y="34" key="run.anything.popup" timestamp="1602253798844">
       <screen x="-1080" y="-853" width="1080" height="1920" />
     </state>
