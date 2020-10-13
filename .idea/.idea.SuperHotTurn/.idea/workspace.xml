@@ -11,13 +11,12 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/Assets/Script/CubePosition.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Script/ClasseBidon.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Script/TileMapSetter.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Script/GridActorTester.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Script/PlayGrid.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Script/PlayGridHolder.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Script/PlayTile.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Script/CubePosition.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Script/GridActorTester.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -28,9 +27,9 @@
         <option value="$PROJECT_DIR$/Assets/Script/CubePosition.cs" />
         <option value="$PROJECT_DIR$/Assets/Script/PlayGridHolder.cs" />
         <option value="$PROJECT_DIR$/Assets/Script/GridActorTester.cs" />
-        <option value="$PROJECT_DIR$/Assets/Script/PlayTile.cs" />
         <option value="$PROJECT_DIR$/Assets/Script/PlayGrid.cs" />
         <option value="$PROJECT_DIR$/Assets/Script/TileMapSetter.cs" />
+        <option value="$PROJECT_DIR$/Assets/Script/PlayTile.cs" />
       </list>
     </option>
   </component>
@@ -84,6 +83,7 @@
       <workItem from="1602229618192" duration="18187000" />
       <workItem from="1602355376265" duration="2382000" />
       <workItem from="1602586427105" duration="3861000" />
+      <workItem from="1602605359940" duration="283000" />
     </task>
     <servers />
   </component>
