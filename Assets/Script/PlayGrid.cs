@@ -1,22 +1,23 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[Serializable]
 public class PlayGrid
 {
-    private int _hight;
+    public int _hight;
     public int Hight {
         get => _hight;
     }
-    private int _width;
+    public int _width;
 
     public int Width {
         get => _width;
     }
-
-    private PlayTile[,] PlayTiles;
-    private float _cellsize;
-    private Vector3 _origine;
+    public PlayTile[,] PlayTiles;
+    public float _cellsize; 
+    public Vector3 _origine;
 
     public PlayGrid(int hight, int width, float cellsize, Vector3 origine)
     {
@@ -82,7 +83,7 @@ public class PlayGrid
         if (!PlayTiles[x, y].IsWalable1) {return false; }
         if (!PlayTiles[x, y].IsWalable2) {return false;}
         if (!PlayTiles[x, y].IsWalable3) {return false;}
-        Debug.Log("travail sur la casse"+ x +" , "+y+" et c'est bon");
+        //Debug.Log("travail sur la casse"+ x +" , "+y+" et c'est bon");
         return true;
     }
     

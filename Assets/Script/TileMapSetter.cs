@@ -12,12 +12,14 @@ public class TileMapSetter : MonoBehaviour
     public Tilemap _tilemap1;
     public Tilemap _tilemap2;
     public Tilemap _tilemap3;
+    public GameObject EditPanel;
     public bool EditMode;
     public GameObject EditeCursor;
     public List<EditPlayTile> EditPlayTiles;
     public int IndexChoseTile;
-    
-    
+    public string SaveFileName;
+
+
     private PlayGridHolder _PlayGridHolder;
     private TilemapRenderer _tilemapRenderer;
     private GameObject _cursor;
@@ -51,6 +53,7 @@ public class TileMapSetter : MonoBehaviour
             if (_cursor == null)
             {
                 _cursor=Instantiate(EditeCursor);
+                EditPanel.SetActive(true);
             }
             _cursor.transform.position = _PlayGridHolder.PlayGrid.GetWorldPositionCentreCell(mouseWorldPos);
 
@@ -121,9 +124,15 @@ public class TileMapSetter : MonoBehaviour
             if (_cursor != null)
             {
                 Destroy(_cursor);
+                EditPanel.SetActive(false);
             }
         }
     }
+
+   // public void SaveMap()
+    
+      //  Save(UnityFolder.stremingAsset,_PlayGridHolder.PlayGrid,SaveFileName);
+    
 }
 [Serializable]
 public class EditPlayTile
