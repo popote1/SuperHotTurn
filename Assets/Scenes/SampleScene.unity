@@ -191,7 +191,7 @@ TilemapRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
   m_MaxChunkCount: 16
@@ -393,15 +393,23 @@ MonoBehaviour:
   EditMode: 0
   EditeCursor: {fileID: 6341508210471718830, guid: e6208044e174e044cb2b4d19fa0e41d9,
     type: 3}
-  PlayTiles:
-  - CellType: 0
-    XPos: 0
-    ZPos: 0
-    Name: Murs
-    IsWalable: 1
+  EditPlayTiles:
+  - Layer: 0
+    IsWalkeble: 1
+    UsingRuleTile: 0
+    Tile: {fileID: 11400000, guid: 129457d76056d754e9448f1af72f7c7a, type: 2}
+    RuleTile: {fileID: 0}
+  - Layer: 0
+    IsWalkeble: 1
+    UsingRuleTile: 0
+    Tile: {fileID: 11400000, guid: 97d133ad8d5eeee47a1ca23711abb507, type: 2}
+    RuleTile: {fileID: 0}
+  - Layer: 1
+    IsWalkeble: 0
     UsingRuleTile: 1
     Tile: {fileID: 0}
     RuleTile: {fileID: 11400000, guid: 60b9f115c61d9834ead34930872cae4f, type: 2}
+  IndexChoseTile: 0
 --- !u!4 &612526510
 Transform:
   m_ObjectHideFlags: 0
@@ -428,8 +436,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ed152df5653ece419382c736d583213, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Hight: 3
-  Width: 3
+  Hight: 10
+  Width: 10
   CellSize: 1
   Origin: {x: 0, y: 0, z: 0}
   ShowDebudLines: 1
@@ -832,7 +840,7 @@ TilemapRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 2
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
   m_MaxChunkCount: 16

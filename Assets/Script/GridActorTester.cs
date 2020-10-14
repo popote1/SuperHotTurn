@@ -11,6 +11,7 @@ public class GridActorTester : MonoBehaviour
     void Start()
     {
         _playGrid = playGidHolder.GetComponent<PlayGridHolder>().PlayGrid;
+        _newPos = _playGrid.GetWorldPositionCentreCell(_currentPos.x, _currentPos.y);
     }
 
     // Update is called once per frame
@@ -20,26 +21,42 @@ public class GridActorTester : MonoBehaviour
         {
             if (Input.GetAxis("Horizontal") < 0)
             {
-                _newPos = _playGrid.GetWorldPositionCentreCell(_currentPos.x,_currentPos.y+1);
-                _currentPos =_currentPos+ new Vector2Int(0,1);
+                if (_playGrid.CheckIfWalkeble((int) _playGrid.GetXY(transform.position).x,
+                    (int) _playGrid.GetXY(transform.position).y + 1))
+                {
+                    _newPos = _playGrid.GetWorldPositionCentreCell(_currentPos.x, _currentPos.y + 1);
+                    _currentPos = _currentPos + new Vector2Int(0, 1);
+                }
             }
             else if (Input.GetAxis("Horizontal") > 0)
             {
-                _newPos = _playGrid.GetWorldPositionCentreCell(_currentPos.x,_currentPos.y-1);
-                _currentPos =_currentPos+ new Vector2Int(0,-1);
+                if (_playGrid.CheckIfWalkeble((int) _playGrid.GetXY(transform.position).x,
+                    (int) _playGrid.GetXY(transform.position).y - 1))
+                {
+                    _newPos = _playGrid.GetWorldPositionCentreCell(_currentPos.x, _currentPos.y - 1);
+                    _currentPos = _currentPos + new Vector2Int(0, -1);
+                }
             }
         }
         else if (Input.GetButtonDown("Vertical"))
         {
             if (Input.GetAxis("Vertical") > 0)
             {
-                _newPos = _playGrid.GetWorldPositionCentreCell(_currentPos.x+1,_currentPos.y);
-                _currentPos =_currentPos+ new Vector2Int(1,0);
+                if (_playGrid.CheckIfWalkeble((int) _playGrid.GetXY(transform.position).x + 1,
+                    (int) _playGrid.GetXY(transform.position).y))
+                {
+                    _newPos = _playGrid.GetWorldPositionCentreCell(_currentPos.x + 1, _currentPos.y);
+                    _currentPos = _currentPos + new Vector2Int(1, 0);
+                }
             }
             else if (Input.GetAxis("Vertical") < 0)
             {
-                _newPos= _playGrid.GetWorldPositionCentreCell(_currentPos.x-1,_currentPos.y);
-                _currentPos =_currentPos+ new Vector2Int(-1,0);
+                if (_playGrid.CheckIfWalkeble((int) _playGrid.GetXY(transform.position).x - 1,
+                    (int) _playGrid.GetXY(transform.position).y))
+                {
+                    _newPos = _playGrid.GetWorldPositionCentreCell(_currentPos.x - 1, _currentPos.y);
+                    _currentPos = _currentPos + new Vector2Int(-1, 0);
+                }
             }
             
         }
@@ -48,3 +65,5 @@ public class GridActorTester : MonoBehaviour
     }
     
 }
+
+

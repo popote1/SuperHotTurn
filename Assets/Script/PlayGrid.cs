@@ -25,6 +25,18 @@ public class PlayGrid
         _width = width;
         _cellsize = cellsize;
         _origine = origine;
+        for (int x = 0; x < hight; x++)
+        {
+            for (int y = 0; y < width; y++)
+            {
+                
+                PlayTiles[x,y] =new PlayTile();
+                //PlayTiles[x, y].Tag1 = 50;
+                //PlayTiles[x, y].Tag2 = 50;
+                //PlayTiles[x, y].Tag3 = 50;
+            }
+            
+        }
     }
 
    
@@ -59,4 +71,21 @@ public class PlayGrid
         PlayTiles[(int) GetXY(worldPos).x, (int) GetXY(worldPos).y] = playTile;
     }
 
-}
+    public PlayTile GetTile(int x, int y)
+    {
+        return PlayTiles[x, y];
+    }
+
+    public bool CheckIfWalkeble(int x, int y)
+    {
+        
+        if (!PlayTiles[x, y].IsWalable1) {return false; }
+        if (!PlayTiles[x, y].IsWalable2) {return false;}
+        if (!PlayTiles[x, y].IsWalable3) {return false;}
+        Debug.Log("travail sur la casse"+ x +" , "+y+" et c'est bon");
+        return true;
+    }
+    
+
+
+    }
