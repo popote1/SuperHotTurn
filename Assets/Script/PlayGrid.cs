@@ -16,8 +16,13 @@ public class PlayGrid
         get => _width;
     }
     public PlayTile[,] PlayTiles;
-    public float _cellsize; 
-    public Vector3 _origine;
+    public float _cellsize;
+    [NonSerialized]
+    private Vector3 _origine;
+
+    private float _oriX;
+    private float _oriY;
+    private float _oriZ;
 
     public PlayGrid(int hight, int width, float cellsize, Vector3 origine)
     {
@@ -26,6 +31,9 @@ public class PlayGrid
         _width = width;
         _cellsize = cellsize;
         _origine = origine;
+        _oriX = origine.x;
+        _oriY = origine.y;
+        _oriZ = origine.z;
         for (int x = 0; x < hight; x++)
         {
             for (int y = 0; y < width; y++)
@@ -47,6 +55,10 @@ public class PlayGrid
         return _origine + new Vector3(x * _cellsize, 0, z * _cellsize);
     }
 
+    public Vector3 GetWorldPositionCentreCell(Vector2Int gridPos)
+    {
+        return _origine + new Vector3(gridPos.x * _cellsize, 0, gridPos.y * _cellsize) + new Vector3(_cellsize / 2, 0, _cellsize / 2);
+    }
     public Vector3 GetWorldPositionCentreCell(int x, int z)
     {
         return _origine + new Vector3(x * _cellsize, 0, z * _cellsize) + new Vector3(_cellsize / 2, 0, _cellsize / 2);
@@ -57,9 +69,9 @@ public class PlayGrid
         return _origine + new Vector3(GetXY(worldPos).x * _cellsize, 0, GetXY(worldPos).y * _cellsize) + new Vector3(_cellsize / 2, 0, _cellsize / 2);
     }
 
-    public Vector2 GetXY(Vector3 worldPos)
+    public Vector2Int GetXY(Vector3 worldPos)
     {
-        return new Vector2((int) (worldPos - _origine).x / _cellsize, (int) (worldPos - _origine).z / _cellsize);
+        return new Vector2Int((int)( (worldPos - _origine).x / _cellsize), (int)((worldPos - _origine).z / _cellsize));
     }
 
     public PlayTile GetPlayTile(Vector3 worldPos)
@@ -72,21 +84,27 @@ public class PlayGrid
         PlayTiles[(int) GetXY(worldPos).x, (int) GetXY(worldPos).y] = playTile;
     }
 
-    public PlayTile GetTile(int x, int y)
+    public PlayTile GetPlayTile(int x, int y)
     {
         return PlayTiles[x, y];
     }
 
+    public PlayTile GetPlayTile(Vector2Int gridpos)
+    {
+        //Debug.Log("les valeurs sont de x "+gridpos.x+" et y "+gridpos.y);
+        return PlayTiles[gridpos.x, gridpos.y];
+    }
+
     public bool CheckIfWalkeble(int x, int y)
     {
-        
+        if (x < 0 || x >= _width || y < 0 || y >= _hight) return false;
         if (!PlayTiles[x, y].IsWalable1) {return false; }
         if (!PlayTiles[x, y].IsWalable2) {return false;}
         if (!PlayTiles[x, y].IsWalable3) {return false;}
         //Debug.Log("travail sur la casse"+ x +" , "+y+" et c'est bon");
         return true;
     }
-    
+        
 
 
     }

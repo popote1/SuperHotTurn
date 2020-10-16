@@ -8,15 +8,22 @@ public class GridActorTester : MonoBehaviour
     private PlayGrid _playGrid;
     private Vector2Int _currentPos=new Vector2Int(0,0);
     private Vector3 _newPos;
-    void Start()
+   /*void Start()
     {
         _playGrid = playGidHolder.GetComponent<PlayGridHolder>().PlayGrid;
         _newPos = _playGrid.GetWorldPositionCentreCell(_currentPos.x, _currentPos.y);
-    }
-
-    // Update is called once per frame
+    }*/
+   
     void Update()
     {
+        //initie ga grid associer
+        if (_playGrid == null && playGidHolder != null)
+        {
+            _playGrid = playGidHolder.GetComponent<PlayGridHolder>().PlayGrid;
+            _newPos = _playGrid.GetWorldPositionCentreCell(_currentPos.x, _currentPos.y);
+        }
+        
+        
         if (Input.GetButtonDown("Horizontal"))
         {
             if (Input.GetAxis("Horizontal") < 0)
@@ -62,6 +69,11 @@ public class GridActorTester : MonoBehaviour
         }
        
         transform.position = Vector3.Lerp(transform.position , _newPos, 0.5f);
+    }
+
+    public void SetGridPos(Vector2Int gridPos)
+    {
+        _currentPos = gridPos;
     }
     
 }

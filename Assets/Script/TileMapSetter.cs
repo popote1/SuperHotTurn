@@ -1,48 +1,55 @@
 ﻿using System;
+using System.Linq;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEditor.Tilemaps;
 using UnityEngine.Tilemaps;
+using UnityEngine.UI;
+using TMPro;
 
 public class TileMapSetter : MonoBehaviour
-{
-    public RuleTile tile;
-    public Grid GridE ;
+{[Header("Configuration Ref")]
     public Tilemap _tilemap1;
     public Tilemap _tilemap2;
     public Tilemap _tilemap3;
     public GameObject EditPanel;
-    public bool EditMode;
     public GameObject EditeCursor;
-    public List<EditPlayTile> EditPlayTiles;
+    [Header("Ui Elements")]
+    public TMP_Dropdown UIEditModeDropDown;
+    public TMP_Text UIIndexChose;
+    public TMP_Text UIDescriptionChose;
+    public TMP_InputField UISaveInputField;
+    public TMP_InputField UILoadInputField;
+    [Header("EditorChoises")]
+    public editorActoie EditorActoie;
+    public bool EditMode;
     public int IndexChoseTile;
+    public int IndexChoseActor;
     public string SaveFileName;
+    public string LoadFileName;
+    [Header("EditorPresets")]
+    public List<EditPlayTile> EditPlayTiles;
+    public List<EditGridActor> EditGridActors;
 
 
     private PlayGridHolder _PlayGridHolder;
     private TilemapRenderer _tilemapRenderer;
     private GameObject _cursor;
-
-
-    void Start()
+    private bool _cursorOnPanel;
+   public enum editorActoie
     {
-        _PlayGridHolder = GetComponent<PlayGridHolder>();
-        
-        //_tilemap = GridE.GetComponentInChildren<Tilemap>();
-        //_tilemapRenderer = GridE.GetComponentInChildren<TilemapRenderer>();
-        _tilemap1.SetTile(Vector3Int.zero,tile);
-        _tilemap1.SetTile(new Vector3Int(0,1,0),tile );
-        _tilemap1.SetTile(new Vector3Int(-1,1,0),tile );
-        _tilemap1.SetTile(new Vector3Int(1,1,0),tile );
-        _tilemap1.SetTile(new Vector3Int(-1,2,0),tile );
-        _tilemap1.SetTile(new Vector3Int(0,2,0),tile );
-        _tilemap1.SetTile(new Vector3Int(1,2,0),tile );
-        
-        
+        EditTiles,EditActor
     }
 
-    // Update is called once per frame
+   private void Start()
+   {
+       _PlayGridHolder = GetComponent<PlayGridHolder>();
+       UIChangeEditMode();
+      
+   }
+
+
+   // Update is called once per frame
     void Update()
     {
         
@@ -57,11 +64,20 @@ public class TileMapSetter : MonoBehaviour
             }
             _cursor.transform.position = _PlayGridHolder.PlayGrid.GetWorldPositionCentreCell(mouseWorldPos);
 
-            if (Input.GetButton("Fire1"))
+            if (Input.GetButton("Fire1")&&!_cursorOnPanel)
             {
-                EditPlayTile chosetile = EditPlayTiles[IndexChoseTile];
+                
+                 if (EditorActoie == editorActoie.EditTiles)
+                {
+                    EditPlayTile chosetile = EditPlayTiles[IndexChoseTile];
+                    SetTile(chosetile, _PlayGridHolder.PlayGrid.GetXY(mouseWorldPos));
+                } else if (EditorActoie == editorActoie.EditActor)
+                {
+                    EditGridActor choseActor = EditGridActors[IndexChoseActor];
+                    SetActor(choseActor,_PlayGridHolder.PlayGrid.GetXY(mouseWorldPos));
+                }
 
-                switch (chosetile.Layer)
+                /*switch (chosetile.Layer)
                 {case 0 :
                         if (_PlayGridHolder.PlayGrid.GetPlayTile(mouseWorldPos).Tag1!=IndexChoseTile)
                         {
@@ -75,9 +91,9 @@ public class TileMapSetter : MonoBehaviour
                                 _tilemap1.SetTile(new Vector3Int((int) GridPos.x, (int) GridPos.y, 0), chosetile.Tile);
                             }
 
-                            _PlayGridHolder.PlayGrid.GetTile((int) GridPos.x, (int) GridPos.y).IsWalable1 =
+                            _PlayGridHolder.PlayGrid.GetPlayTile((int) GridPos.x, (int) GridPos.y).IsWalable1 =
                                 chosetile.IsWalkeble;
-                            _PlayGridHolder.PlayGrid.GetTile((int) GridPos.x, (int) GridPos.y).Tag1 = IndexChoseTile;
+                            _PlayGridHolder.PlayGrid.GetPlayTile((int) GridPos.x, (int) GridPos.y).Tag1 = IndexChoseTile;
                         }
                     break;
                     case 1 :
@@ -93,9 +109,9 @@ public class TileMapSetter : MonoBehaviour
                                 _tilemap2.SetTile(new Vector3Int((int) GridPos.x, (int) GridPos.y, 0), chosetile.Tile);
                             }
 
-                            _PlayGridHolder.PlayGrid.GetTile((int) GridPos.x, (int) GridPos.y).IsWalable2 =
+                            _PlayGridHolder.PlayGrid.GetPlayTile((int) GridPos.x, (int) GridPos.y).IsWalable2 =
                                 chosetile.IsWalkeble;
-                            _PlayGridHolder.PlayGrid.GetTile((int) GridPos.x, (int) GridPos.y).Tag2 = IndexChoseTile;
+                            _PlayGridHolder.PlayGrid.GetPlayTile((int) GridPos.x, (int) GridPos.y).Tag2 = IndexChoseTile;
                         }
                         break;
                     case 2 :if (_PlayGridHolder.PlayGrid.GetPlayTile(mouseWorldPos).Tag3!=IndexChoseTile)
@@ -110,12 +126,12 @@ public class TileMapSetter : MonoBehaviour
                                 _tilemap3.SetTile(new Vector3Int((int) GridPos.x, (int) GridPos.y, 0), chosetile.Tile);
                             }
 
-                            _PlayGridHolder.PlayGrid.GetTile((int) GridPos.x, (int) GridPos.y).IsWalable3 =
+                            _PlayGridHolder.PlayGrid.GetPlayTile((int) GridPos.x, (int) GridPos.y).IsWalable3 =
                                 chosetile.IsWalkeble;
-                            _PlayGridHolder.PlayGrid.GetTile((int) GridPos.x, (int) GridPos.y).Tag2 = IndexChoseTile;
+                            _PlayGridHolder.PlayGrid.GetPlayTile((int) GridPos.x, (int) GridPos.y).Tag2 = IndexChoseTile;
                         }
                         break;
-                }
+                }*/
                 
             }
         }
@@ -129,10 +145,143 @@ public class TileMapSetter : MonoBehaviour
         }
     }
 
-   // public void SaveMap()
-    
+    public void SaveMap()
+    {
+        SaveFileName = UISaveInputField.text;
+        BinaryDataHandler.Save(BinaryDataHandler.UnityFolder.stremingAsset,_PlayGridHolder.PlayGrid,SaveFileName);
+    }
+
+    public void Load()
+    {
+        LoadFileName = UILoadInputField.text;
+        PlayGrid LoadedGrig =BinaryDataHandler.Load<PlayGrid>(BinaryDataHandler.UnityFolder.stremingAsset, LoadFileName);
+        Debug.Log(LoadedGrig._hight);
+       _PlayGridHolder.PlayGrid = LoadedGrig;
+        for (int x = 0; x < LoadedGrig._hight; x++)
+        {
+            for (int y = 0; y <LoadedGrig._width; y++)
+            {
+                if (LoadedGrig.PlayTiles[x,y].Tag1!=0) SetTile(EditPlayTiles[LoadedGrig.PlayTiles[x,y].Tag1],new Vector2Int(x,y));
+                if (LoadedGrig.PlayTiles[x,y].Tag2!=0) SetTile(EditPlayTiles[LoadedGrig.PlayTiles[x,y].Tag2],new Vector2Int(x,y));
+                if (LoadedGrig.PlayTiles[x,y].Tag3!=0) SetTile(EditPlayTiles[LoadedGrig.PlayTiles[x,y].Tag3],new Vector2Int(x,y));
+                if (LoadedGrig.PlayTiles[x,y].ActorIndex!=0)SetActor(EditGridActors[LoadedGrig.PlayTiles[x,y].ActorIndex],new Vector2Int(x,y));
+            }
+            
+        }
+    }
       //  Save(UnityFolder.stremingAsset,_PlayGridHolder.PlayGrid,SaveFileName);
-    
+      private void SetTile(EditPlayTile chosetile,Vector2Int gridPos)
+      {
+          switch (chosetile.Layer)
+                {case 0 :
+                        if (_PlayGridHolder.PlayGrid.GetPlayTile(gridPos).Tag1!=IndexChoseTile)
+                        {
+                            Vector2 GridPos = gridPos;
+                            if (chosetile.UsingRuleTile)
+                            {
+                                _tilemap1.SetTile(new Vector3Int((int) GridPos.x, (int) GridPos.y, 0), chosetile.RuleTile);
+                            }
+                            else
+                            {
+                                _tilemap1.SetTile(new Vector3Int((int) GridPos.x, (int) GridPos.y, 0), chosetile.Tile);
+                            }
+
+                            _PlayGridHolder.PlayGrid.GetPlayTile((int) GridPos.x, (int) GridPos.y).IsWalable1 =
+                                chosetile.IsWalkeble;
+                            _PlayGridHolder.PlayGrid.GetPlayTile((int) GridPos.x, (int) GridPos.y).Tag1 = IndexChoseTile;
+                        }
+                    break;
+                    case 1 :
+                        if (_PlayGridHolder.PlayGrid.GetPlayTile(gridPos).Tag2!=IndexChoseTile)
+                        {
+                            Vector2 GridPos = gridPos;
+                            if (chosetile.UsingRuleTile)
+                            {
+                                _tilemap2.SetTile(new Vector3Int((int) GridPos.x, (int) GridPos.y, 0), chosetile.RuleTile);
+                            }
+                            else
+                            {
+                                _tilemap2.SetTile(new Vector3Int((int) GridPos.x, (int) GridPos.y, 0), chosetile.Tile);
+                            }
+
+                            _PlayGridHolder.PlayGrid.GetPlayTile((int) GridPos.x, (int) GridPos.y).IsWalable2 =
+                                chosetile.IsWalkeble;
+                            _PlayGridHolder.PlayGrid.GetPlayTile((int) GridPos.x, (int) GridPos.y).Tag2 = IndexChoseTile;
+                        }
+                        break;
+                    case 2 :if (_PlayGridHolder.PlayGrid.GetPlayTile(gridPos).Tag3!=IndexChoseTile)
+                        {
+                            Vector2 GridPos = gridPos;
+                            if (chosetile.UsingRuleTile)
+                            {
+                                _tilemap3.SetTile(new Vector3Int((int) GridPos.x, (int) GridPos.y, 0), chosetile.RuleTile);
+                            }
+                            else
+                            {
+                                _tilemap3.SetTile(new Vector3Int((int) GridPos.x, (int) GridPos.y, 0), chosetile.Tile);
+                            }
+
+                            _PlayGridHolder.PlayGrid.GetPlayTile((int) GridPos.x, (int) GridPos.y).IsWalable3 =
+                                chosetile.IsWalkeble;
+                            _PlayGridHolder.PlayGrid.GetPlayTile((int) GridPos.x, (int) GridPos.y).Tag2 = IndexChoseTile;
+                        }
+                        break;
+                }
+      }
+
+      private void SetActor(EditGridActor editGridActor, Vector2Int gridPos)
+      {
+          if (_PlayGridHolder.PlayGrid.GetPlayTile(gridPos).ActorIndex != IndexChoseActor)
+          {
+              GameObject newObject= Instantiate(editGridActor.GameObject, _PlayGridHolder.PlayGrid.GetWorldPositionCentreCell(gridPos),
+                  Quaternion.identity);
+              _PlayGridHolder.PlayGrid.GetPlayTile(gridPos).ActorIndex = IndexChoseActor;
+              _PlayGridHolder.PlayGrid.GetPlayTile(gridPos).GridActor=newObject; 
+              newObject.GetComponent<GridActorTester>().playGidHolder =gameObject;
+              newObject.GetComponent<GridActorTester>().SetGridPos(gridPos);
+          }
+      }
+
+      public void UIChangeEditMode()
+      {
+          switch (UIEditModeDropDown.value)
+          {
+              case 0: EditorActoie = editorActoie.EditTiles;
+                  UIIndexChose.text = ""+IndexChoseTile;
+                  break;
+              case 1: EditorActoie = editorActoie.EditActor;
+                  UIIndexChose.text = "" + IndexChoseActor;
+                  break;
+          }
+      }
+
+      public void UIPlusMoin(int value)
+      {
+          if (EditorActoie == editorActoie.EditTiles)
+          {
+              IndexChoseTile += value;
+              if (IndexChoseTile < 0) IndexChoseTile = 0;
+              UIIndexChose.text = ""+IndexChoseTile;
+          }else if (EditorActoie == editorActoie.EditActor)
+          {
+              IndexChoseActor += value;
+              if (IndexChoseActor < 0) IndexChoseActor = 0;
+              UIIndexChose.text = "" + IndexChoseActor;
+          }
+      }
+
+      public void UICursorExitPanel()
+      {
+          _cursorOnPanel = false;
+          Debug.Log("Sort Du Panel");
+      }
+
+      public void UICursorEntrePanel()
+      {
+          _cursorOnPanel = true;
+          Debug.Log("Entre Dans le pannel");
+      }
+
 }
 [Serializable]
 public class EditPlayTile
@@ -142,4 +291,9 @@ public class EditPlayTile
     public bool UsingRuleTile;
     public Tile Tile;
     public RuleTile RuleTile;
+}
+[Serializable]
+public class EditGridActor
+{
+    public GameObject GameObject;
 }

@@ -114,6 +114,8 @@
           <e p="CubePosition.cs" t="Include" />
           <e p="DataHandler.cs" t="Include" />
           <e p="GridActorTester.cs" t="Include" />
+          <e p="MainMenuHendler.cs" t="Include" />
+          <e p="MapLoader.cs" t="Include" />
           <e p="PlayGrid.cs" t="Include" />
           <e p="PlayGridHolder.cs" t="Include" />
           <e p="PlayTile.cs" t="Include" />

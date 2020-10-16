@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlayGridHolder : MonoBehaviour
 {
+    public bool InEditMode;
     public int Hight;
     public int Width;
     public float CellSize;
@@ -11,25 +12,34 @@ public class PlayGridHolder : MonoBehaviour
     public PlayGrid PlayGrid;
 
     [Header("Debug Options")] public bool ShowDebudLines = true;
+
     void Awake()
     {
-        PlayGrid = new PlayGrid(Hight,Width,CellSize, Origin);
+        if (InEditMode)
+        {
+            PlayGrid = new PlayGrid(Hight, Width, CellSize, Origin);
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (ShowDebudLines)
+        if (PlayGrid != null)
         {
-            for (int x = 0; x < PlayGrid.Width; x++)
+            if (ShowDebudLines)
             {
-                for (int z = 0; z < PlayGrid.Hight; z++)
+                for (int x = 0; x < PlayGrid.Width; x++)
                 {
-                    Debug.DrawLine(PlayGrid.GetWorldPosition(x, z), PlayGrid.GetWorldPosition(x, z + 1), Color.red);
-                    Debug.DrawLine(PlayGrid.GetWorldPosition(x, z), PlayGrid.GetWorldPosition(x + 1, z), Color.red);
-                }
+                    for (int z = 0; z < PlayGrid.Hight; z++)
+                    {
+                        Debug.DrawLine(PlayGrid.GetWorldPosition(x, z), PlayGrid.GetWorldPosition(x, z + 1), Color.red);
+                        Debug.DrawLine(PlayGrid.GetWorldPosition(x, z), PlayGrid.GetWorldPosition(x + 1, z), Color.red);
+                    }
 
+                }
             }
         }
     }
+
+   
 }

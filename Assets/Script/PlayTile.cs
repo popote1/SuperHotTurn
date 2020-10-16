@@ -16,5 +16,9 @@ public class PlayTile
     public bool IsWalable1=true;
     public bool IsWalable2=true;
     public bool IsWalable3=true;
+    public int ActorIndex;
+    [NonSerialized]
+    public GameObject GridActor;
+
     
 }

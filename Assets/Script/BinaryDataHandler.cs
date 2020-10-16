@@ -15,10 +15,31 @@ public static class BinaryDataHandler
 
         string filePath = GetDirectory(unityFolder) + Path.AltDirectorySeparatorChar + fileName;
         
-        FileStream fs = new FileStream(filePath,FileMode.Create);
+        FileStream fs = new FileStream(filePath,FileMode.OpenOrCreate);
         BinaryFormatter formatter =new BinaryFormatter();
         formatter.Serialize(fs ,data);
         fs.Close();
+    }
+
+    public static T Load<T>(UnityFolder unityFolder, string fileName)
+    {
+        CheckAndCreatDirectory(unityFolder);
+        string filePath = GetDirectory(unityFolder) + Path.AltDirectorySeparatorChar + fileName;
+        
+        if (!CheckFile(filePath))
+        {
+            throw new Exception("Pas de fichier de save à "+filePath);
+        }
+        BinaryFormatter bf = new BinaryFormatter();
+        FileStream fs = new FileStream(filePath, FileMode.Open);
+        T data = (T) bf.Deserialize(fs);
+        return data;
+    }
+
+    public static string[] CheckForFiles(UnityFolder unityFolder)
+    {
+        return Directory.GetFiles(GetDirectory(unityFolder) + Path.AltDirectorySeparatorChar);
+        
     }
     
     
