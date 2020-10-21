@@ -12,14 +12,16 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/Assets/Script/MainMenuHendler.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Script/BinaryDataHandler.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Script/ClasseBidon.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Script/MapLoader.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Script/GridActors/GridActorEnnemi.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Script/TileMapSetter.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Script/GridActorTester.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Script/TimeManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Script/PlayGrid.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Script/PlayGridHolder.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Script/PlayTile.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Script/SOTempletActors.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Script/BinaryDataHandler.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Script/MapLoader.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Script/PlayGridHolder.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Script/CubePosition.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
@@ -30,13 +32,24 @@
         <option value="$PROJECT_DIR$/Assets/Script/CubePosition.cs" />
         <option value="$PROJECT_DIR$/Assets/Script/DataHandler.cs" />
         <option value="$PROJECT_DIR$/Assets/Script/PlayTile.cs" />
-        <option value="$PROJECT_DIR$/Assets/Script/GridActorTester.cs" />
-        <option value="$PROJECT_DIR$/Assets/Script/PlayGrid.cs" />
-        <option value="$PROJECT_DIR$/Assets/Script/BinaryDataHandler.cs" />
-        <option value="$PROJECT_DIR$/Assets/Script/MainMenuHendler.cs" />
+        <option value="$PROJECT_DIR$/Assets/Script/SOTempletBuilder.cs" />
         <option value="$PROJECT_DIR$/Assets/Script/PlayGridHolder.cs" />
-        <option value="$PROJECT_DIR$/Assets/Script/TileMapSetter.cs" />
+        <option value="$PROJECT_DIR$/Assets/Script/MainMenuHendler.cs" />
+        <option value="$PROJECT_DIR$/Assets/Script/BinaryDataHandler.cs" />
+        <option value="$PROJECT_DIR$/Assets/Script/UITest/AutoSetupButon.cs" />
+        <option value="$PROJECT_DIR$/Assets/Script/SOTempletActors.cs" />
+        <option value="$PROJECT_DIR$/Assets/Script/GridActorTester.cs" />
         <option value="$PROJECT_DIR$/Assets/Script/MapLoader.cs" />
+        <option value="$PROJECT_DIR$/Assets/Script/TileMapSetter.cs" />
+        <option value="$PROJECT_DIR$/Assets/Script/GridActor.cs" />
+        <option value="$PROJECT_DIR$/Assets/Script/GridActorPlayer.cs" />
+        <option value="$PROJECT_DIR$/Assets/Script/GridActors/GridActorEnnemi.cs" />
+        <option value="$PROJECT_DIR$/Assets/Script/TImeManager.cs" />
+        <option value="$PROJECT_DIR$/Assets/Script/PlayGrid.cs" />
+        <option value="$PROJECT_DIR$/Assets/Script/TimeManager.cs" />
+        <option value="$PROJECT_DIR$/Assets/Script/GridActors/GridActorEnemieVertica.cs" />
+        <option value="$PROJECT_DIR$/Assets/Script/BulletScript.cs" />
+        <option value="$PROJECT_DIR$/Assets/Script/GridActors/GridActorPlayer.cs" />
       </list>
     </option>
   </component>
@@ -71,10 +84,10 @@
       </option>
       <method v="2" />
     </configuration>
-    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" ignored-value-for-modified-check="4332">
+    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
-      <option name="pid" value="4332" />
+      <option name="pid" />
       <option name="selectedOptions">
         <set />
       </option>
@@ -97,6 +110,11 @@
       <workItem from="1602684771944" duration="3278000" />
       <workItem from="1602768189571" duration="6547000" />
       <workItem from="1602833150230" duration="19095000" />
+      <workItem from="1603094089050" duration="7328000" />
+      <workItem from="1603111815780" duration="8598000" />
+      <workItem from="1603134725633" duration="365000" />
+      <workItem from="1603209299472" duration="2953000" />
+      <workItem from="1603258737546" duration="15111000" />
     </task>
     <servers />
   </component>
@@ -182,9 +200,10 @@
       <screen x="-1080" y="-851" width="1080" height="1880" />
     </state>
     <state width="498" height="446" key="SwitcherDM/0.0.1920.1040/-1080.-851.1080.1880@-1080.-851.1080.1880" timestamp="1602664309374" />
-    <state x="-884" y="34" key="run.anything.popup" timestamp="1602253798844">
-      <screen x="-1080" y="-853" width="1080" height="1920" />
+    <state x="348" y="480" key="run.anything.popup" timestamp="1603261821266">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
+    <state x="348" y="480" key="run.anything.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1603261821266" />
     <state x="-884" y="34" key="run.anything.popup/0.0.1920.1080/-1080.-853.1080.1920@-1080.-853.1080.1920" timestamp="1602253798844" />
     <state x="-877" y="-416" width="672" height="678" key="search.everywhere.popup" timestamp="1602858024144">
       <screen x="-1080" y="-851" width="1080" height="1880" />

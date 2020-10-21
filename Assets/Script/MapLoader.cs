@@ -12,13 +12,21 @@ public class MapLoader : MonoBehaviour
     public Tilemap _tilemap3;
     [Header("EditorPresets")]
     public List<EditPlayTile> EditPlayTiles;
-    public List<EditGridActor> EditGridActors;
+    //public List<EditGridActor> EditGridActors;
+    public SOTempletBuilder TempletBuilder;
+    public SOTempletActors TempletActors;
 
     private PlayGridHolder _PlayGridHolder;
+    private PlayGrid savePlayGrid;
 
     private void Awake()
     {
-        _PlayGridHolder = GetComponent<PlayGridHolder>();
+        GameObject LoadData =GameObject.Find("MainMenu");
+        _PlayGridHolder = GetComponent<PlayGridHolder>(); 
+        savePlayGrid = LoadData.GetComponent<MainMenuHendler>().PlayGrid;
+        newPlayGrid=_PlayGridHolder.CreatNewPlaygrid(savePlayGrid._hight, savePlayGrid._width, savePlayGrid._cellsize, savePlayGrid.GetGridOrinie());
+        Load();
+        Destroy(LoadData);
     }
 
     public void Load()
@@ -26,15 +34,15 @@ public class MapLoader : MonoBehaviour
         
         
         Debug.Log(newPlayGrid._hight);
-       _PlayGridHolder.PlayGrid = newPlayGrid;
-        for (int x = 0; x < newPlayGrid._hight; x++)
+      // _PlayGridHolder.PlayGrid = newPlayGrid;
+        for (int x = 0; x < savePlayGrid._hight; x++)
         {
-            for (int y = 0; y <newPlayGrid._width; y++)
+            for (int y = 0; y <savePlayGrid._width; y++)
             {
-                if (newPlayGrid.PlayTiles[x,y].Tag1!=0) SetTile(EditPlayTiles[newPlayGrid.PlayTiles[x,y].Tag1],new Vector2Int(x,y),newPlayGrid.PlayTiles[x,y].Tag1);
-                if (newPlayGrid.PlayTiles[x,y].Tag2!=0) SetTile(EditPlayTiles[newPlayGrid.PlayTiles[x,y].Tag2],new Vector2Int(x,y),newPlayGrid.PlayTiles[x,y].Tag2);
-                if (newPlayGrid.PlayTiles[x,y].Tag3!=0) SetTile(EditPlayTiles[newPlayGrid.PlayTiles[x,y].Tag3],new Vector2Int(x,y),newPlayGrid.PlayTiles[x,y].Tag3);
-                if (newPlayGrid.PlayTiles[x,y].ActorIndex!=0)SetActor(EditGridActors[newPlayGrid.PlayTiles[x,y].ActorIndex],new Vector2Int(x,y),newPlayGrid.PlayTiles[x,y].ActorIndex);
+                if (savePlayGrid.PlayTiles[x,y].Tag1!=0) SetTile(TempletBuilder.EditPlayTiles[savePlayGrid.PlayTiles[x,y].Tag1],new Vector2Int(x,y),newPlayGrid.PlayTiles[x,y].Tag1);
+                if (savePlayGrid.PlayTiles[x,y].Tag2!=0) SetTile(TempletBuilder.EditPlayTiles[savePlayGrid.PlayTiles[x,y].Tag2],new Vector2Int(x,y),newPlayGrid.PlayTiles[x,y].Tag2);
+                if (savePlayGrid.PlayTiles[x,y].Tag3!=0) SetTile(TempletBuilder.EditPlayTiles[savePlayGrid.PlayTiles[x,y].Tag3],new Vector2Int(x,y),newPlayGrid.PlayTiles[x,y].Tag3);
+                if (savePlayGrid.PlayTiles[x,y].ActorIndex!=0)SetActor(TempletActors.EditGridActors[savePlayGrid.PlayTiles[x,y].ActorIndex],new Vector2Int(x,y),newPlayGrid.PlayTiles[x,y].ActorIndex);
             }
             
         }
@@ -102,9 +110,11 @@ public class MapLoader : MonoBehaviour
               Quaternion.identity);
           _PlayGridHolder.PlayGrid.GetPlayTile(gridPos).ActorIndex = index;
           _PlayGridHolder.PlayGrid.GetPlayTile(gridPos).GridActor=newObject; 
-          newObject.GetComponent<GridActorTester>().playGidHolder =gameObject;
-          newObject.GetComponent<GridActorTester>().SetGridPos(gridPos);
-          if (index ==1) newObject.GetComponentInChildren<Camera>().enabled = true;
+          newObject.GetComponent<GridActor>().playGidHolder =gameObject;
+          newObject.GetComponent<GridActor>().PlayGrid = newPlayGrid;
+          newObject.GetComponent<GridActor>().SetGridPos(gridPos);
+          Debug.Log("L'index est de"+index);
+          if (index ==0){ newObject.GetComponentInChildren<Camera>().enabled = true;Debug.Log("Activation de la camera , l'index est de"+index);}
 
       }
 }

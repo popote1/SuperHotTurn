@@ -9,11 +9,11 @@ using System.Runtime.CompilerServices;
 
 public static class BinaryDataHandler 
 {
-    public static void Save<T>(UnityFolder unityFolder,T data,string fileName)
+    public static void Save<T>(UnityFolder unityFolder,T data,string fileName,DataFileExtention dataFileExtention)
     {
         CheckAndCreatDirectory(unityFolder);
 
-        string filePath = GetDirectory(unityFolder) + Path.AltDirectorySeparatorChar + fileName;
+        string filePath = GetDirectory(unityFolder) + Path.AltDirectorySeparatorChar + fileName+GetExtention(dataFileExtention);
         
         FileStream fs = new FileStream(filePath,FileMode.OpenOrCreate);
         BinaryFormatter formatter =new BinaryFormatter();
@@ -21,14 +21,14 @@ public static class BinaryDataHandler
         fs.Close();
     }
 
-    public static T Load<T>(UnityFolder unityFolder, string fileName)
+    public static T Load<T>(UnityFolder unityFolder, string fileName,DataFileExtention dataFileExtention)
     {
         CheckAndCreatDirectory(unityFolder);
-        string filePath = GetDirectory(unityFolder) + Path.AltDirectorySeparatorChar + fileName;
+        string filePath = GetDirectory(unityFolder) + Path.AltDirectorySeparatorChar + fileName+GetExtention(dataFileExtention);
         
         if (!CheckFile(filePath))
         {
-            throw new Exception("Pas de fichier de save à "+filePath);
+           throw new Exception("Pas de fichier de save à "+filePath);
         }
         BinaryFormatter bf = new BinaryFormatter();
         FileStream fs = new FileStream(filePath, FileMode.Open);
@@ -69,6 +69,21 @@ public static class BinaryDataHandler
             default:
                 throw new ArgumentOutOfRangeException(nameof(unityFolder), unityFolder, null);
         }
+    }
+
+    private static string GetExtention(DataFileExtention dataFileExtention)
+    {
+        switch (dataFileExtention)
+        {
+            case DataFileExtention.map :
+                return ".map";
+                
+        }
+        return "";
+    }
+    public enum DataFileExtention
+    {
+        map
     }
     public enum UnityFolder
     {

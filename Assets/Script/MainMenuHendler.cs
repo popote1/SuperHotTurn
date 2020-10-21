@@ -5,6 +5,7 @@ using UnityEditor;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.SceneManagement;
 public class MainMenuHendler : MonoBehaviour
 {
 
@@ -12,7 +13,13 @@ public class MainMenuHendler : MonoBehaviour
     public GameObject BoutonSave;
     public GameObject PannelDesSaves;
     public GameObject PannelLoad;
-    
+
+    [HideInInspector] public PlayGrid PlayGrid;
+
+    private void Start()
+    {
+        DontDestroyOnLoad(gameObject);
+    }
     public void UIToPlayMode()
     {
         PannelLoad.SetActive(true);
@@ -20,17 +27,18 @@ public class MainMenuHendler : MonoBehaviour
         foreach (Transform child in PannelDesSaves.transform)
         {Destroy(child.gameObject, 0.01f);
         }
-
-      
-        
-        
-       string[] saves= BinaryDataHandler.CheckForFiles(BinaryDataHandler.UnityFolder.stremingAsset);
+        string[] saves= BinaryDataHandler.CheckForFiles(BinaryDataHandler.UnityFolder.stremingAsset);
        foreach (var save in saves)
        {
-           if (!Path.HasExtension(save))
+           if (Path.GetExtension(save)==".map")
            {
                GameObject bouton = Instantiate(BoutonSave, PannelDesSaves.transform);
-               bouton.GetComponentInChildren<TMP_Text>().text = Path.GetFileName(save);
+               bouton.GetComponentInChildren<TMP_Text>().text = Path.GetFileNameWithoutExtension(save);
+               bouton.GetComponent<Button>().onClick.AddListener(delegate
+               {
+                   PlayGrid = BinaryDataHandler.Load<PlayGrid>(BinaryDataHandler.UnityFolder.stremingAsset,Path.GetFileNameWithoutExtension(save),BinaryDataHandler.DataFileExtention.map);
+                   SceneManager.LoadScene(1);
+               });
            }
        }
     }

@@ -71,10 +71,6 @@ public class GridActorTester : MonoBehaviour
         transform.position = Vector3.Lerp(transform.position , _newPos, 0.5f);
     }
 
-    public void SetGridPos(Vector2Int gridPos)
-    {
-        _currentPos = gridPos;
-    }
     
 }
 

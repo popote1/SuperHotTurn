@@ -15,10 +15,10 @@ public class PlayGridHolder : MonoBehaviour
 
     void Awake()
     {
-        if (InEditMode)
-        {
-            PlayGrid = new PlayGrid(Hight, Width, CellSize, Origin);
-        }
+        //if (InEditMode)
+       // {
+          PlayGrid = new PlayGrid(Hight, Width, CellSize, Origin);
+        //}
     }
 
     // Update is called once per frame
@@ -39,6 +39,12 @@ public class PlayGridHolder : MonoBehaviour
                 }
             }
         }
+    }
+
+    public PlayGrid CreatNewPlaygrid(int hight , int width , float cellSize , Vector3 origine)
+    {
+        PlayGrid = new PlayGrid(hight,width,cellSize,origine);
+        return PlayGrid;
     }
 
    

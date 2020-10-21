@@ -28,8 +28,11 @@ public class TileMapSetter : MonoBehaviour
     public string SaveFileName;
     public string LoadFileName;
     [Header("EditorPresets")]
-    public List<EditPlayTile> EditPlayTiles;
-    public List<EditGridActor> EditGridActors;
+    //public List<EditPlayTile> EditPlayTiles;
+    //public List<EditGridActor> EditGridActors;
+
+    public SOTempletActors TempletActors;
+    public SOTempletBuilder TempletBuilder;
 
 
     private PlayGridHolder _PlayGridHolder;
@@ -44,7 +47,9 @@ public class TileMapSetter : MonoBehaviour
    private void Start()
    {
        _PlayGridHolder = GetComponent<PlayGridHolder>();
+       _PlayGridHolder.PlayGrid.TileTemple = TempletBuilder.name;
        UIChangeEditMode();
+       
       
    }
 
@@ -69,11 +74,11 @@ public class TileMapSetter : MonoBehaviour
                 
                  if (EditorActoie == editorActoie.EditTiles)
                 {
-                    EditPlayTile chosetile = EditPlayTiles[IndexChoseTile];
+                    EditPlayTile chosetile = TempletBuilder.EditPlayTiles[IndexChoseTile];
                     SetTile(chosetile, _PlayGridHolder.PlayGrid.GetXY(mouseWorldPos));
                 } else if (EditorActoie == editorActoie.EditActor)
                 {
-                    EditGridActor choseActor = EditGridActors[IndexChoseActor];
+                    EditGridActor choseActor = TempletActors.EditGridActors[IndexChoseActor];
                     SetActor(choseActor,_PlayGridHolder.PlayGrid.GetXY(mouseWorldPos));
                 }
 
@@ -148,23 +153,24 @@ public class TileMapSetter : MonoBehaviour
     public void SaveMap()
     {
         SaveFileName = UISaveInputField.text;
-        BinaryDataHandler.Save(BinaryDataHandler.UnityFolder.stremingAsset,_PlayGridHolder.PlayGrid,SaveFileName);
+        BinaryDataHandler.Save(BinaryDataHandler.UnityFolder.stremingAsset,_PlayGridHolder.PlayGrid,SaveFileName,BinaryDataHandler.DataFileExtention.map);
     }
 
     public void Load()
     {
         LoadFileName = UILoadInputField.text;
-        PlayGrid LoadedGrig =BinaryDataHandler.Load<PlayGrid>(BinaryDataHandler.UnityFolder.stremingAsset, LoadFileName);
+        PlayGrid LoadedGrig = BinaryDataHandler.Load<PlayGrid>(BinaryDataHandler.UnityFolder.stremingAsset,
+            LoadFileName, BinaryDataHandler.DataFileExtention.map);
         Debug.Log(LoadedGrig._hight);
        _PlayGridHolder.PlayGrid = LoadedGrig;
         for (int x = 0; x < LoadedGrig._hight; x++)
         {
             for (int y = 0; y <LoadedGrig._width; y++)
             {
-                if (LoadedGrig.PlayTiles[x,y].Tag1!=0) SetTile(EditPlayTiles[LoadedGrig.PlayTiles[x,y].Tag1],new Vector2Int(x,y));
-                if (LoadedGrig.PlayTiles[x,y].Tag2!=0) SetTile(EditPlayTiles[LoadedGrig.PlayTiles[x,y].Tag2],new Vector2Int(x,y));
-                if (LoadedGrig.PlayTiles[x,y].Tag3!=0) SetTile(EditPlayTiles[LoadedGrig.PlayTiles[x,y].Tag3],new Vector2Int(x,y));
-                if (LoadedGrig.PlayTiles[x,y].ActorIndex!=0)SetActor(EditGridActors[LoadedGrig.PlayTiles[x,y].ActorIndex],new Vector2Int(x,y));
+                if (LoadedGrig.PlayTiles[x,y].Tag1!=0) SetTile(TempletBuilder.EditPlayTiles[LoadedGrig.PlayTiles[x,y].Tag1],new Vector2Int(x,y));
+                if (LoadedGrig.PlayTiles[x,y].Tag2!=0) SetTile(TempletBuilder.EditPlayTiles[LoadedGrig.PlayTiles[x,y].Tag2],new Vector2Int(x,y));
+                if (LoadedGrig.PlayTiles[x,y].Tag3!=0) SetTile(TempletBuilder.EditPlayTiles[LoadedGrig.PlayTiles[x,y].Tag3],new Vector2Int(x,y));
+                if (LoadedGrig.PlayTiles[x,y].ActorIndex!=0)SetActor(TempletActors.EditGridActors[LoadedGrig.PlayTiles[x,y].ActorIndex],new Vector2Int(x,y));
             }
             
         }
@@ -237,8 +243,9 @@ public class TileMapSetter : MonoBehaviour
                   Quaternion.identity);
               _PlayGridHolder.PlayGrid.GetPlayTile(gridPos).ActorIndex = IndexChoseActor;
               _PlayGridHolder.PlayGrid.GetPlayTile(gridPos).GridActor=newObject; 
-              newObject.GetComponent<GridActorTester>().playGidHolder =gameObject;
-              newObject.GetComponent<GridActorTester>().SetGridPos(gridPos);
+              newObject.GetComponent<GridActor>().playGidHolder =gameObject;
+              newObject.GetComponent<GridActor>().PlayGrid = _PlayGridHolder.PlayGrid;
+              newObject.GetComponent<GridActor>().SetGridPos(gridPos);
           }
       }
 

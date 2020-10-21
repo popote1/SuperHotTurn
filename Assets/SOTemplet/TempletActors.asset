@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d338fa14a28686e48bd1d46d6bd2b34f, type: 3}
+  m_Name: TempletActors
+  m_EditorClassIdentifier: 
+  EditGridActors:
+  - GameObject: {fileID: 0}
+  - GameObject: {fileID: 6122030335036287967, guid: 52c4be91e95b69c4687c2218d6e58629,
+      type: 3}
+  - GameObject: {fileID: 4506544142776283652, guid: bd83aa7e475dbbd469ebe1f6ece18eb4,
+      type: 3}

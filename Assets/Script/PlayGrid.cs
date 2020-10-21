@@ -15,6 +15,8 @@ public class PlayGrid
     public int Width {
         get => _width;
     }
+
+    public string TileTemple;
     public PlayTile[,] PlayTiles;
     public float _cellsize;
     [NonSerialized]
@@ -95,13 +97,20 @@ public class PlayGrid
         return PlayTiles[gridpos.x, gridpos.y];
     }
 
+    public Vector3 GetGridOrinie()
+    {
+        return new Vector3(_oriX,_oriY,_oriZ);
+    }
+
     public bool CheckIfWalkeble(int x, int y)
     {
         if (x < 0 || x >= _width || y < 0 || y >= _hight) return false;
         if (!PlayTiles[x, y].IsWalable1) {return false; }
         if (!PlayTiles[x, y].IsWalable2) {return false;}
         if (!PlayTiles[x, y].IsWalable3) {return false;}
-        //Debug.Log("travail sur la casse"+ x +" , "+y+" et c'est bon");
+        
+        if (PlayTiles[x, y].GridActor != null) { return false;}
+       // Debug.Log("travail sur la casse"+ x +" , "+y+" et c'est bon et l'obet sur la case est"+PlayTiles[x,y].GridActor.name);
         return true;
     }
         

@@ -1276,8 +1276,8 @@ GameObject:
   - component: {fileID: 1734987867}
   - component: {fileID: 1734987866}
   m_Layer: 5
-  m_Name: Canvas
-  m_TagString: Untagged
+  m_Name: MainMenu
+  m_TagString: persistant
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1299,6 +1299,7 @@ MonoBehaviour:
     type: 3}
   PannelDesSaves: {fileID: 327742161}
   PannelLoad: {fileID: 1965064260}
+  LoadFile: 
 --- !u!114 &1734987867
 MonoBehaviour:
   m_ObjectHideFlags: 0
