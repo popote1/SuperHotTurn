@@ -18,6 +18,10 @@ public class MapLoader : MonoBehaviour
 
     private PlayGridHolder _PlayGridHolder;
     private PlayGrid savePlayGrid;
+    private GameManager _gameManager;
+
+    private GameObject _player;
+    private List<GameObject> _ennemis=new List<GameObject>();
 
     private void Awake()
     {
@@ -25,6 +29,7 @@ public class MapLoader : MonoBehaviour
         _PlayGridHolder = GetComponent<PlayGridHolder>(); 
         savePlayGrid = LoadData.GetComponent<MainMenuHendler>().PlayGrid;
         newPlayGrid=_PlayGridHolder.CreatNewPlaygrid(savePlayGrid._hight, savePlayGrid._width, savePlayGrid._cellsize, savePlayGrid.GetGridOrinie());
+        _gameManager = GetComponent<GameManager>();
         Load();
         Destroy(LoadData);
     }
@@ -46,6 +51,7 @@ public class MapLoader : MonoBehaviour
             }
             
         }
+        _gameManager.SetUpGame(_ennemis , _player);
     }
       //  Save(UnityFolder.stremingAsset,_PlayGridHolder.PlayGrid,SaveFileName);
       private void SetTile(EditPlayTile chosetile,Vector2Int gridPos, int index)
@@ -67,7 +73,7 @@ public class MapLoader : MonoBehaviour
                                 chosetile.IsWalkeble;
                             _PlayGridHolder.PlayGrid.GetPlayTile(gridPos.x,  gridPos.y).Tag1 =index;
                         
-                    break;
+                    return;
                     case 1 :
                        
                            
@@ -84,7 +90,7 @@ public class MapLoader : MonoBehaviour
                                 chosetile.IsWalkeble;
                             _PlayGridHolder.PlayGrid.GetPlayTile((int) gridPos.x, (int) gridPos.y).Tag2 = index;
                         
-                        break;
+                        return;
                     case 2 :
                             
                             if (chosetile.UsingRuleTile)
@@ -100,7 +106,7 @@ public class MapLoader : MonoBehaviour
                                 chosetile.IsWalkeble;
                             _PlayGridHolder.PlayGrid.GetPlayTile((int) gridPos.x, (int) gridPos.y).Tag2 = index;
                         
-                        break;
+                        return;
                 }
       }
 
@@ -114,8 +120,16 @@ public class MapLoader : MonoBehaviour
           newObject.GetComponent<GridActor>().PlayGrid = newPlayGrid;
           newObject.GetComponent<GridActor>().SetGridPos(gridPos);
           Debug.Log("L'index est de"+index);
-          if (index ==1){ newObject.transform.GetChild(0).gameObject.SetActive(true);
-              Debug.Log("Activation de la camera , l'index est de"+index);}
+          if (index ==1)
+          {
+              newObject.transform.GetChild(0).gameObject.SetActive(true);
+              _player = newObject;
+             }
+
+          if (index == 2)
+          {
+              _ennemis.Add(newObject);
+          }
 
       }
 }

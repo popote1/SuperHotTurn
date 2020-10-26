@@ -10,6 +10,7 @@ public  class TimeManager : MonoBehaviour
     public static UnityEvent TTStart = new UnityEvent();
     public static UnityEvent TTUpdate= new UnityEvent();
     public static UnityEvent TTLateUpdate= new UnityEvent();
+    public static  UnityEvent TTSetPause = new UnityEvent();
 
     private void Start()
     {
@@ -23,6 +24,7 @@ public  class TimeManager : MonoBehaviour
        TTUpdate.Invoke();
        TTLateUpdate.Invoke();
     }
-    
+
+   
     
 }
