@@ -12,17 +12,17 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/Assets/Script/MainMenuHendler.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Script/BinaryDataHandler.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Script/ClasseBidon.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Script/GridActors/GridActorEnnemi.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Script/MapLoader.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Script/TileMapSetter.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Script/TimeManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Script/PlayGrid.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Script/PlayTile.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Script/SOTempletActors.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Script/BinaryDataHandler.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Script/MapLoader.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Script/PlayGridHolder.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Script/CubePosition.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Script/SOTempletActors.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -39,7 +39,6 @@
         <option value="$PROJECT_DIR$/Assets/Script/UITest/AutoSetupButon.cs" />
         <option value="$PROJECT_DIR$/Assets/Script/SOTempletActors.cs" />
         <option value="$PROJECT_DIR$/Assets/Script/GridActorTester.cs" />
-        <option value="$PROJECT_DIR$/Assets/Script/MapLoader.cs" />
         <option value="$PROJECT_DIR$/Assets/Script/TileMapSetter.cs" />
         <option value="$PROJECT_DIR$/Assets/Script/GridActor.cs" />
         <option value="$PROJECT_DIR$/Assets/Script/GridActorPlayer.cs" />
@@ -47,8 +46,9 @@
         <option value="$PROJECT_DIR$/Assets/Script/TImeManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Script/PlayGrid.cs" />
         <option value="$PROJECT_DIR$/Assets/Script/TimeManager.cs" />
-        <option value="$PROJECT_DIR$/Assets/Script/GridActors/GridActorEnemieVertica.cs" />
         <option value="$PROJECT_DIR$/Assets/Script/BulletScript.cs" />
+        <option value="$PROJECT_DIR$/Assets/Script/GridActors/GridActorEnemieVertica.cs" />
+        <option value="$PROJECT_DIR$/Assets/Script/MapLoader.cs" />
         <option value="$PROJECT_DIR$/Assets/Script/GridActors/GridActorPlayer.cs" />
       </list>
     </option>
@@ -114,7 +114,8 @@
       <workItem from="1603111815780" duration="8598000" />
       <workItem from="1603134725633" duration="365000" />
       <workItem from="1603209299472" duration="2953000" />
-      <workItem from="1603258737546" duration="15111000" />
+      <workItem from="1603258737546" duration="16099000" />
+      <workItem from="1603396137322" duration="2645000" />
     </task>
     <servers />
   </component>

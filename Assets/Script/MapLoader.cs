@@ -39,10 +39,10 @@ public class MapLoader : MonoBehaviour
         {
             for (int y = 0; y <savePlayGrid._width; y++)
             {
-                if (savePlayGrid.PlayTiles[x,y].Tag1!=0) SetTile(TempletBuilder.EditPlayTiles[savePlayGrid.PlayTiles[x,y].Tag1],new Vector2Int(x,y),newPlayGrid.PlayTiles[x,y].Tag1);
-                if (savePlayGrid.PlayTiles[x,y].Tag2!=0) SetTile(TempletBuilder.EditPlayTiles[savePlayGrid.PlayTiles[x,y].Tag2],new Vector2Int(x,y),newPlayGrid.PlayTiles[x,y].Tag2);
-                if (savePlayGrid.PlayTiles[x,y].Tag3!=0) SetTile(TempletBuilder.EditPlayTiles[savePlayGrid.PlayTiles[x,y].Tag3],new Vector2Int(x,y),newPlayGrid.PlayTiles[x,y].Tag3);
-                if (savePlayGrid.PlayTiles[x,y].ActorIndex!=0)SetActor(TempletActors.EditGridActors[savePlayGrid.PlayTiles[x,y].ActorIndex],new Vector2Int(x,y),newPlayGrid.PlayTiles[x,y].ActorIndex);
+                if (savePlayGrid.PlayTiles[x,y].Tag1!=0) SetTile(TempletBuilder.EditPlayTiles[savePlayGrid.PlayTiles[x,y].Tag1],new Vector2Int(x,y),savePlayGrid.PlayTiles[x,y].Tag1);
+                if (savePlayGrid.PlayTiles[x,y].Tag2!=0) SetTile(TempletBuilder.EditPlayTiles[savePlayGrid.PlayTiles[x,y].Tag2],new Vector2Int(x,y),savePlayGrid.PlayTiles[x,y].Tag2);
+                if (savePlayGrid.PlayTiles[x,y].Tag3!=0) SetTile(TempletBuilder.EditPlayTiles[savePlayGrid.PlayTiles[x,y].Tag3],new Vector2Int(x,y),savePlayGrid.PlayTiles[x,y].Tag3);
+                if (savePlayGrid.PlayTiles[x,y].ActorIndex!=0)SetActor(TempletActors.EditGridActors[savePlayGrid.PlayTiles[x,y].ActorIndex],new Vector2Int(x,y),savePlayGrid.PlayTiles[x,y].ActorIndex);
             }
             
         }
@@ -114,7 +114,8 @@ public class MapLoader : MonoBehaviour
           newObject.GetComponent<GridActor>().PlayGrid = newPlayGrid;
           newObject.GetComponent<GridActor>().SetGridPos(gridPos);
           Debug.Log("L'index est de"+index);
-          if (index ==0){ newObject.GetComponentInChildren<Camera>().enabled = true;Debug.Log("Activation de la camera , l'index est de"+index);}
+          if (index ==1){ newObject.transform.GetChild(0).gameObject.SetActive(true);
+              Debug.Log("Activation de la camera , l'index est de"+index);}
 
       }
 }

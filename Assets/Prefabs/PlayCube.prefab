@@ -216,7 +216,8 @@ MonoBehaviour:
       m_Calls: []
   Canon: {fileID: 3614091761275216800}
   FirePoint: {fileID: 8178656748738900171}
-  Munition: {fileID: 0}
+  Munition: {fileID: 620634064482080265, guid: 9d861d6df4ffb1d4ca3b991fa7b43b76, type: 3}
+  Munitionspeed: 1
 --- !u!1 &6122030335313625054
 GameObject:
   m_ObjectHideFlags: 0
@@ -234,7 +235,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &6122030335313625051
 Transform:
   m_ObjectHideFlags: 0
@@ -256,7 +257,7 @@ Camera:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6122030335313625054}
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
   m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}

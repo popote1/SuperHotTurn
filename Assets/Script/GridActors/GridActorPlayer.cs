@@ -38,7 +38,9 @@ public class GridActorPlayer : GridActor
                     (int) PlayGrid.GetXY(transform.position).y + 1))
                 {
                     _newPos = PlayGrid.GetWorldPositionCentreCell(_currentPos.x, _currentPos.y + 1);
+                    PlayGrid.GetPlayTile(_currentPos).GridActor = null;
                     _currentPos = _currentPos + new Vector2Int(0, 1);
+                    PlayGrid.GetPlayTile(_currentPos).GridActor = gameObject;
                     DirectorMove.Invoke();
                 }
             }
@@ -48,7 +50,9 @@ public class GridActorPlayer : GridActor
                     (int) PlayGrid.GetXY(transform.position).y - 1))
                 {
                     _newPos = PlayGrid.GetWorldPositionCentreCell(_currentPos.x, _currentPos.y - 1);
+                    PlayGrid.GetPlayTile(_currentPos).GridActor = null;
                     _currentPos = _currentPos + new Vector2Int(0, -1);
+                    PlayGrid.GetPlayTile(_currentPos).GridActor = gameObject;
                     DirectorMove.Invoke();
                 }
             }
@@ -62,7 +66,9 @@ public class GridActorPlayer : GridActor
                     (int) PlayGrid.GetXY(transform.position).y))
                 {
                     _newPos = PlayGrid.GetWorldPositionCentreCell(_currentPos.x + 1, _currentPos.y);
+                    PlayGrid.GetPlayTile(_currentPos).GridActor = null;
                     _currentPos = _currentPos + new Vector2Int(1, 0);
+                    PlayGrid.GetPlayTile(_currentPos).GridActor = gameObject;
                     DirectorMove.Invoke();
                 }
             }
@@ -72,7 +78,9 @@ public class GridActorPlayer : GridActor
                     (int) PlayGrid.GetXY(transform.position).y))
                 {
                     _newPos = PlayGrid.GetWorldPositionCentreCell(_currentPos.x - 1, _currentPos.y);
+                    PlayGrid.GetPlayTile(_currentPos).GridActor = null;
                     _currentPos = _currentPos + new Vector2Int(-1, 0);
+                    PlayGrid.GetPlayTile(_currentPos).GridActor = gameObject;
                     DirectorMove.Invoke();
                 }
             }
