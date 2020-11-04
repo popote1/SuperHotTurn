@@ -44,6 +44,9 @@ public class MapLoader : MonoBehaviour
         {
             for (int y = 0; y <savePlayGrid._width; y++)
             {
+                Debug.Log("le tuile " + x + " , " + y + " a comme index 1" + savePlayGrid.PlayTiles[x, y].Tag1 +
+                          " index 2 " + savePlayGrid.PlayTiles[x, y].Tag2 + " index 3" +
+                    savePlayGrid.PlayTiles[x, y].Tag1);
                 if (savePlayGrid.PlayTiles[x,y].Tag1!=0) SetTile(TempletBuilder.EditPlayTiles[savePlayGrid.PlayTiles[x,y].Tag1],new Vector2Int(x,y),savePlayGrid.PlayTiles[x,y].Tag1);
                 if (savePlayGrid.PlayTiles[x,y].Tag2!=0) SetTile(TempletBuilder.EditPlayTiles[savePlayGrid.PlayTiles[x,y].Tag2],new Vector2Int(x,y),savePlayGrid.PlayTiles[x,y].Tag2);
                 if (savePlayGrid.PlayTiles[x,y].Tag3!=0) SetTile(TempletBuilder.EditPlayTiles[savePlayGrid.PlayTiles[x,y].Tag3],new Vector2Int(x,y),savePlayGrid.PlayTiles[x,y].Tag3);
@@ -53,7 +56,7 @@ public class MapLoader : MonoBehaviour
         }
         _gameManager.SetUpGame(_ennemis , _player);
     }
-      //  Save(UnityFolder.stremingAsset,_PlayGridHolder.PlayGrid,SaveFileName);
+      
       private void SetTile(EditPlayTile chosetile,Vector2Int gridPos, int index)
       {
           switch (chosetile.Layer)

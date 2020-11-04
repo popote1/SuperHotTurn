@@ -214,10 +214,17 @@ MonoBehaviour:
   DirectorMove:
     m_PersistentCalls:
       m_Calls: []
+  PlayerFire:
+    m_PersistentCalls:
+      m_Calls: []
   Canon: {fileID: 3614091761275216800}
   FirePoint: {fileID: 8178656748738900171}
   Munition: {fileID: 620634064482080265, guid: 9d861d6df4ffb1d4ca3b991fa7b43b76, type: 3}
+  AmmoLeft: 0
+  AmmoReload: 2
   Munitionspeed: 1
+  PartculeShot: {fileID: 3125675507621793788, guid: b7a0b2c7fa9e99a4e90c373f0951dfb9,
+    type: 3}
 --- !u!1 &6122030335313625054
 GameObject:
   m_ObjectHideFlags: 0
@@ -300,7 +307,7 @@ AudioListener:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6122030335313625054}
-  m_Enabled: 0
+  m_Enabled: 1
 --- !u!1 &7808070044231974279
 GameObject:
   m_ObjectHideFlags: 0

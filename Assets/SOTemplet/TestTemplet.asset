@@ -13,22 +13,26 @@ MonoBehaviour:
   m_Name: TestTemplet
   m_EditorClassIdentifier: 
   EditPlayTiles:
-  - Layer: 0
+  - Name: Effacer Tuile
+    Layer: 0
     IsWalkeble: 0
     UsingRuleTile: 0
     Tile: {fileID: 0}
     RuleTile: {fileID: 0}
-  - Layer: 1
+  - Name: Sol 1
+    Layer: 1
     IsWalkeble: 1
     UsingRuleTile: 0
     Tile: {fileID: 11400000, guid: 97d133ad8d5eeee47a1ca23711abb507, type: 2}
     RuleTile: {fileID: 0}
-  - Layer: 1
+  - Name: Sol2
+    Layer: 1
     IsWalkeble: 1
     UsingRuleTile: 0
     Tile: {fileID: 11400000, guid: 129457d76056d754e9448f1af72f7c7a, type: 2}
     RuleTile: {fileID: 0}
-  - Layer: 2
+  - Name: Mur
+    Layer: 2
     IsWalkeble: 0
     UsingRuleTile: 1
     Tile: {fileID: 0}

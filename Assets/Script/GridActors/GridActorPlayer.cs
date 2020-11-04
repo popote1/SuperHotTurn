@@ -14,6 +14,7 @@ public class GridActorPlayer : GridActor
     public int AmmoLeft;
     public int AmmoReload=2;
     public float Munitionspeed;
+    public GameObject PartculeShot;
     private bool _hasFire;
 
     private bool _isPause;
@@ -116,6 +117,7 @@ public class GridActorPlayer : GridActor
                     bullet.GetComponent<BulletScript>().TTmove();
                     AmmoLeft--;
                     PlayerFire.Invoke();
+                    Destroy(Instantiate(PartculeShot,Canon.transform.position, Canon.transform.rotation ) ,2f );
                 }
             }
         }

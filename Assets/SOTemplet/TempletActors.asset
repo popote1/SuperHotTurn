@@ -13,8 +13,11 @@ MonoBehaviour:
   m_Name: TempletActors
   m_EditorClassIdentifier: 
   EditGridActors:
-  - GameObject: {fileID: 0}
-  - GameObject: {fileID: 6122030335036287967, guid: 52c4be91e95b69c4687c2218d6e58629,
+  - Name: Effacer Acteur
+    GameObject: {fileID: 0}
+  - Name: Joueur
+    GameObject: {fileID: 6122030335036287967, guid: 52c4be91e95b69c4687c2218d6e58629,
       type: 3}
-  - GameObject: {fileID: 4506544142776283652, guid: bd83aa7e475dbbd469ebe1f6ece18eb4,
+  - Name: Ennemi horizontal
+    GameObject: {fileID: 4506544142776283652, guid: bd83aa7e475dbbd469ebe1f6ece18eb4,
       type: 3}

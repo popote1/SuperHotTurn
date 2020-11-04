@@ -13,8 +13,9 @@ GameObject:
   - component: {fileID: 5262151652945870481}
   - component: {fileID: 2261518693008566381}
   - component: {fileID: 1373211269936542361}
+  - component: {fileID: 3542133535578664089}
   m_Layer: 0
-  m_Name: Cube
+  m_Name: VeticalEnemi
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -90,7 +91,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4506544142776283652}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
@@ -116,7 +117,27 @@ MonoBehaviour:
     _cellsize: 0
   _currentPos: {x: 0, y: 0}
   HP: 0
+  Particule1: {fileID: 2419216117554031456, guid: 281e83616ab13624c844ad3e618d461f,
+    type: 3}
+  Particule2: {fileID: 7212237036940550822, guid: e82f9d8b827b73648a1efeb5d47821bf,
+    type: 3}
   Direction: 0
+--- !u!54 &3542133535578664089
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4506544142776283652}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &5904947257949647213
 GameObject:
   m_ObjectHideFlags: 0

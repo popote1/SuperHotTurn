@@ -12,9 +12,11 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/Assets/Script/CubePosition.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Script/SheckLauncher.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Script/ClasseBidon.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Script/GameManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Script/TileMapSetter.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Script/ScreenShake.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Script/PlayGrid.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Script/PlayGridHolder.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Script/PlayTile.cs" root0="FORCE_HIGHLIGHTING" />
@@ -29,25 +31,28 @@
         <option value="$PROJECT_DIR$/Assets/Script/DataHandler.cs" />
         <option value="$PROJECT_DIR$/Assets/Script/PlayTile.cs" />
         <option value="$PROJECT_DIR$/Assets/Script/SOTempletBuilder.cs" />
-        <option value="$PROJECT_DIR$/Assets/Script/PlayGridHolder.cs" />
-        <option value="$PROJECT_DIR$/Assets/Script/MainMenuHendler.cs" />
         <option value="$PROJECT_DIR$/Assets/Script/BinaryDataHandler.cs" />
         <option value="$PROJECT_DIR$/Assets/Script/UITest/AutoSetupButon.cs" />
         <option value="$PROJECT_DIR$/Assets/Script/SOTempletActors.cs" />
         <option value="$PROJECT_DIR$/Assets/Script/GridActorTester.cs" />
-        <option value="$PROJECT_DIR$/Assets/Script/TileMapSetter.cs" />
         <option value="$PROJECT_DIR$/Assets/Script/GridActor.cs" />
         <option value="$PROJECT_DIR$/Assets/Script/GridActorPlayer.cs" />
-        <option value="$PROJECT_DIR$/Assets/Script/GridActors/GridActorEnnemi.cs" />
         <option value="$PROJECT_DIR$/Assets/Script/TImeManager.cs" />
-        <option value="$PROJECT_DIR$/Assets/Script/PlayGrid.cs" />
-        <option value="$PROJECT_DIR$/Assets/Script/BulletScript.cs" />
         <option value="$PROJECT_DIR$/Assets/Script/GridActors/GridActorEnemieVertica.cs" />
-        <option value="$PROJECT_DIR$/Assets/Script/EditorCam.cs" />
         <option value="$PROJECT_DIR$/Assets/Script/TimeManager.cs" />
+        <option value="$PROJECT_DIR$/Assets/Script/BulletScript.cs" />
+        <option value="$PROJECT_DIR$/Assets/Script/EditorCam.cs" />
+        <option value="$PROJECT_DIR$/Assets/Script/MainMenuHendler.cs" />
+        <option value="$PROJECT_DIR$/Assets/Script/PlayGridHolder.cs" />
+        <option value="$PROJECT_DIR$/Assets/Script/PlayGrid.cs" />
         <option value="$PROJECT_DIR$/Assets/Script/MapLoader.cs" />
         <option value="$PROJECT_DIR$/Assets/Script/GridActors/GridActorPlayer.cs" />
+        <option value="$PROJECT_DIR$/Assets/Script/GridActors/GridActorEnnemi.cs" />
+        <option value="$PROJECT_DIR$/Assets/Script/SheckLauncher.cs" />
+        <option value="$PROJECT_DIR$/Assets/Script/ScreenShake.cs" />
         <option value="$PROJECT_DIR$/Assets/Script/GameManager.cs" />
+        <option value="$PROJECT_DIR$/Assets/Script/JuiceManager.cs" />
+        <option value="$PROJECT_DIR$/Assets/Script/TileMapSetter.cs" />
       </list>
     </option>
   </component>
@@ -73,6 +78,14 @@
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
+    <configuration name="Standalone Player" type="RunUnityExe" factoryName="Unity Executable">
+      <option name="EXE_PATH" value="$PROJECT_DIR$/Build/Build0\et.exe" />
+      <option name="PROGRAM_PARAMETERS" value="" />
+      <option name="WORKING_DIRECTORY" value="C:\Git\SuperHotTurn\Build\Build0" />
+      <option name="PASS_PARENT_ENVS" value="1" />
+      <option name="USE_EXTERNAL_CONSOLE" value="0" />
+      <method v="2" />
+    </configuration>
     <configuration name="Attach to Unity Editor &amp; Play" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="UNITY_ATTACH_AND_PLAY" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
@@ -114,7 +127,10 @@
       <workItem from="1603209299472" duration="2953000" />
       <workItem from="1603258737546" duration="16099000" />
       <workItem from="1603396137322" duration="2645000" />
-      <workItem from="1603700842923" duration="5352000" />
+      <workItem from="1603700842923" duration="11779000" />
+      <workItem from="1603787016106" duration="17079000" />
+      <workItem from="1604421840331" duration="5696000" />
+      <workItem from="1604483871798" duration="10217000" />
     </task>
     <servers />
   </component>

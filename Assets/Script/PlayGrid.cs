@@ -28,17 +28,18 @@ public class PlayGrid
 
     public PlayGrid(int hight, int width, float cellsize, Vector3 origine)
     {
-        PlayTiles = new PlayTile[hight,width];
+        PlayTiles = new PlayTile[width,hight];
         _hight = hight;
         _width = width;
+        Debug.Log("hauter"+ hight +"   Largeur "+width);
         _cellsize = cellsize;
         _origine = origine;
         _oriX = origine.x;
         _oriY = origine.y;
         _oriZ = origine.z;
-        for (int x = 0; x < hight; x++)
+        for (int x = 0; x < width; x++)
         {
-            for (int y = 0; y < width; y++)
+            for (int y = 0; y < hight; y++)
             {
                 
                 PlayTiles[x,y] =new PlayTile();
@@ -88,6 +89,7 @@ public class PlayGrid
 
     public PlayTile GetPlayTile(int x, int y)
     {
+        //Debug.Log(x+"   "+ y);
         return PlayTiles[x, y];
     }
 

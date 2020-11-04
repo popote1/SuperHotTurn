@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
-using TMPro.EditorUtilities;
+
 using UnityEngine;
 
 public class EditorCam : MonoBehaviour
@@ -42,6 +42,6 @@ public class EditorCam : MonoBehaviour
    moveVector+=Vector3.up;
   }
   transform.Translate(moveVector*ScreenMoveSpeed);
-  Debug.Log(moveVector*ScreenMoveSpeed);
+ // Debug.Log(moveVector*ScreenMoveSpeed);
  }
 }

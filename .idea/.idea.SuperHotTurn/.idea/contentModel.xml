@@ -123,11 +123,14 @@
             <e p="GridActorPlayer.cs" t="Include" />
             <e p="GridActorTester.cs" t="Include" />
           </e>
+          <e p="JuiceManager.cs" t="Include" />
           <e p="MainMenuHendler.cs" t="Include" />
           <e p="MapLoader.cs" t="Include" />
           <e p="PlayGrid.cs" t="Include" />
           <e p="PlayGridHolder.cs" t="Include" />
           <e p="PlayTile.cs" t="Include" />
+          <e p="ScreenShake.cs" t="Include" />
+          <e p="SheckLauncher.cs" t="Include" />
           <e p="SOTempletActors.cs" t="Include" />
           <e p="SOTempletBuilder.cs" t="Include" />
           <e p="TileMapSetter.cs" t="Include" />

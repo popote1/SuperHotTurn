@@ -10,15 +10,27 @@ public class PlayGridHolder : MonoBehaviour
     public float CellSize;
     public Vector3 Origin;
     public PlayGrid PlayGrid;
+    public TileMapSetter TileMapSetter;
 
     [Header("Debug Options")] public bool ShowDebudLines = true;
 
     void Awake()
     {
-        //if (InEditMode)
-       // {
-          PlayGrid = new PlayGrid(Hight, Width, CellSize, Origin);
-        //}
+        if (TileMapSetter != null)
+        {
+            
+                MainMenuHendler info = GameObject.Find("MainMenu").GetComponent<MainMenuHendler>();
+                Hight = info.NewHauteur;
+                Width = info.NewLargeur;
+                PlayGrid = new PlayGrid(info.NewHauteur, info.NewLargeur, CellSize, Origin);
+                TileMapSetter.ChangeNameSave(info.NewName);
+                Destroy(info.gameObject);
+                Debug.Log("hauter"+ info.NewHauteur +"   Largeur "+info.NewLargeur);
+            
+        }
+        else{
+            PlayGrid = new PlayGrid(Hight, Width, CellSize, Origin);
+        }
     }
 
     // Update is called once per frame
