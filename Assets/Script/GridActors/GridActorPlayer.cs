@@ -15,7 +15,11 @@ public class GridActorPlayer : GridActor
     public int AmmoReload=2;
     public float Munitionspeed;
     public GameObject PartculeShot;
+    [Header("Sprite et animes")] 
+    public SpriteRenderer Sprite;
+    public Animator Animator;
     private bool _hasFire;
+    private bool _goingforward;
 
     private bool _isPause;
     // Start is called before the first frame update
@@ -47,6 +51,9 @@ public class GridActorPlayer : GridActor
                     if (PlayGrid.CheckIfWalkeble((int) PlayGrid.GetXY(transform.position).x,
                         (int) PlayGrid.GetXY(transform.position).y + 1))
                     {
+                        Animator.SetTrigger("Walk");
+                        Sprite.flipX = true ;
+                       
                         _newPos = PlayGrid.GetWorldPositionCentreCell(_currentPos.x, _currentPos.y + 1);
                         PlayGrid.GetPlayTile(_currentPos).GridActor = null;
                         _currentPos = _currentPos + new Vector2Int(0, 1);
@@ -60,6 +67,9 @@ public class GridActorPlayer : GridActor
                     if (PlayGrid.CheckIfWalkeble((int) PlayGrid.GetXY(transform.position).x,
                         (int) PlayGrid.GetXY(transform.position).y - 1))
                     {
+                        Sprite.flipX = false;
+                       
+                        Animator.SetTrigger("Walk");
                         _newPos = PlayGrid.GetWorldPositionCentreCell(_currentPos.x, _currentPos.y - 1);
                         PlayGrid.GetPlayTile(_currentPos).GridActor = null;
                         _currentPos = _currentPos + new Vector2Int(0, -1);
@@ -73,10 +83,12 @@ public class GridActorPlayer : GridActor
             {
                 if (Input.GetAxis("Vertical") > 0)
                 {
+                    
                     Debug.Log("BP vertical");
                     if (PlayGrid.CheckIfWalkeble((int) PlayGrid.GetXY(transform.position).x + 1,
                         (int) PlayGrid.GetXY(transform.position).y))
                     {
+                        Animator.SetTrigger("Walk");
                         _newPos = PlayGrid.GetWorldPositionCentreCell(_currentPos.x + 1, _currentPos.y);
                         PlayGrid.GetPlayTile(_currentPos).GridActor = null;
                         _currentPos = _currentPos + new Vector2Int(1, 0);
@@ -90,6 +102,7 @@ public class GridActorPlayer : GridActor
                     if (PlayGrid.CheckIfWalkeble((int) PlayGrid.GetXY(transform.position).x - 1,
                         (int) PlayGrid.GetXY(transform.position).y))
                     {
+                        Animator.SetTrigger("Walk");
                         _newPos = PlayGrid.GetWorldPositionCentreCell(_currentPos.x - 1, _currentPos.y);
                         PlayGrid.GetPlayTile(_currentPos).GridActor = null;
                         _currentPos = _currentPos + new Vector2Int(-1, 0);

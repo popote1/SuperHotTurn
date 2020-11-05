@@ -13,6 +13,7 @@ public class ScreenShake : MonoBehaviour
     private float _totaltimer;
     private float _frenceTimer;
     private Vector3 _originalPos;
+    
     private float x;
     private float y;
     private float z;
@@ -42,7 +43,7 @@ public class ScreenShake : MonoBehaviour
             else
             {
                 _doShake = false;
-                Camera.transform.position = _originalPos;
+                Camera.transform.position = Camera.transform.parent.transform.position + new Vector3(0,10,0);
             }
         }
     }

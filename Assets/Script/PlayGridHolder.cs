@@ -11,6 +11,7 @@ public class PlayGridHolder : MonoBehaviour
     public Vector3 Origin;
     public PlayGrid PlayGrid;
     public TileMapSetter TileMapSetter;
+    [SerializeField]public EditorCam EditorCam;
 
     [Header("Debug Options")] public bool ShowDebudLines = true;
 
@@ -26,7 +27,9 @@ public class PlayGridHolder : MonoBehaviour
                 TileMapSetter.ChangeNameSave(info.NewName);
                 Destroy(info.gameObject);
                 Debug.Log("hauter"+ info.NewHauteur +"   Largeur "+info.NewLargeur);
-            
+                EditorCam.Xmax = PlayGrid._width * PlayGrid._cellsize;
+                EditorCam.Ymax = PlayGrid._hight * PlayGrid._cellsize;
+                
         }
         else{
             PlayGrid = new PlayGrid(Hight, Width, CellSize, Origin);

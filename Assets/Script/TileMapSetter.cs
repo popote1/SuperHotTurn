@@ -81,7 +81,7 @@ public class TileMapSetter : MonoBehaviour
                 _cursor=Instantiate(EditeCursor);
                 EditPanel.SetActive(true);
             }
-            _cursor.transform.position = _PlayGridHolder.PlayGrid.GetWorldPositionCentreCell(mouseWorldPos);
+            _cursor.transform.position =Vector3.Lerp(_cursor.transform.position, _PlayGridHolder.PlayGrid.GetWorldPositionCentreCell(mouseWorldPos),0.5f);
 
             if (Input.GetButton("Fire1")&&!_cursorOnPanel)
             {
@@ -342,7 +342,7 @@ public class TileMapSetter : MonoBehaviour
               if (IndexChoseTile >= TempletBuilder.EditPlayTiles.Count)
               {
                  
-                  IndexChoseTile = TempletActors.EditGridActors.Count;
+                  IndexChoseTile = TempletBuilder.EditPlayTiles.Count-1;
               }
 
               UIIndexChose.text = ""+IndexChoseTile;
@@ -352,7 +352,7 @@ public class TileMapSetter : MonoBehaviour
               IndexChoseActor += value;
               if (IndexChoseActor < 0) IndexChoseActor = 0;
               if (IndexChoseActor >= TempletActors.EditGridActors.Count)
-                 IndexChoseActor = TempletActors.EditGridActors.Count;
+                 IndexChoseActor = TempletActors.EditGridActors.Count-1;
               UIIndexChose.text = "" + IndexChoseActor;
              UIDescriptionChose.text = TempletActors.EditGridActors[IndexChoseActor].Name;
           }

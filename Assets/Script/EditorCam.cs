@@ -8,9 +8,12 @@ public class EditorCam : MonoBehaviour
 {
  public float ScreenBorderDetection =10;
  public float ScreenMoveSpeed = 0.1f;
+ public float Xmax;
+ public float Ymax;
  private Camera _cam;
  private int _hight;
  private int _width;
+ 
  private void Start()
  {
   
@@ -42,6 +45,7 @@ public class EditorCam : MonoBehaviour
    moveVector+=Vector3.up;
   }
   transform.Translate(moveVector*ScreenMoveSpeed);
+  transform.position = new Vector3(Mathf.Clamp(transform.position.x , 0,Xmax),transform.position.y ,Mathf.Clamp(transform.position.z , 0 , Ymax));
  // Debug.Log(moveVector*ScreenMoveSpeed);
  }
 }

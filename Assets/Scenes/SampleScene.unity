@@ -1926,6 +1926,7 @@ MonoBehaviour:
     TileTemple: 
     _cellsize: 0
   TileMapSetter: {fileID: 612526509}
+  EditorCam: {fileID: 867356315}
   ShowDebudLines: 1
 --- !u!114 &612526512
 MonoBehaviour:
@@ -2396,6 +2397,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ScreenBorderDetection: 20
   ScreenMoveSpeed: 0.1
+  Xmax: 0
+  Ymax: 0
 --- !u!1 &945060265
 GameObject:
   m_ObjectHideFlags: 0
@@ -4630,8 +4633,8 @@ RectTransform:
   m_Children:
   - {fileID: 1437504368}
   - {fileID: 1401888510}
-  - {fileID: 2029318407}
   - {fileID: 1693847163}
+  - {fileID: 2029318407}
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -5133,7 +5136,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1468423630}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -5988,7 +5991,7 @@ RectTransform:
   - {fileID: 439717868}
   - {fileID: 514613918}
   m_Father: {fileID: 1468423630}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.3, y: 0.4}
   m_AnchorMax: {x: 0.7, y: 0.6}

@@ -41,18 +41,18 @@
         <option value="$PROJECT_DIR$/Assets/Script/GridActors/GridActorEnemieVertica.cs" />
         <option value="$PROJECT_DIR$/Assets/Script/TimeManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Script/BulletScript.cs" />
-        <option value="$PROJECT_DIR$/Assets/Script/EditorCam.cs" />
         <option value="$PROJECT_DIR$/Assets/Script/MainMenuHendler.cs" />
-        <option value="$PROJECT_DIR$/Assets/Script/PlayGridHolder.cs" />
         <option value="$PROJECT_DIR$/Assets/Script/PlayGrid.cs" />
-        <option value="$PROJECT_DIR$/Assets/Script/MapLoader.cs" />
-        <option value="$PROJECT_DIR$/Assets/Script/GridActors/GridActorPlayer.cs" />
         <option value="$PROJECT_DIR$/Assets/Script/GridActors/GridActorEnnemi.cs" />
         <option value="$PROJECT_DIR$/Assets/Script/SheckLauncher.cs" />
-        <option value="$PROJECT_DIR$/Assets/Script/ScreenShake.cs" />
         <option value="$PROJECT_DIR$/Assets/Script/GameManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Script/JuiceManager.cs" />
+        <option value="$PROJECT_DIR$/Assets/Script/EditorCam.cs" />
+        <option value="$PROJECT_DIR$/Assets/Script/PlayGridHolder.cs" />
         <option value="$PROJECT_DIR$/Assets/Script/TileMapSetter.cs" />
+        <option value="$PROJECT_DIR$/Assets/Script/GridActors/GridActorPlayer.cs" />
+        <option value="$PROJECT_DIR$/Assets/Script/ScreenShake.cs" />
+        <option value="$PROJECT_DIR$/Assets/Script/MapLoader.cs" />
       </list>
     </option>
   </component>
@@ -130,7 +130,8 @@
       <workItem from="1603700842923" duration="11779000" />
       <workItem from="1603787016106" duration="17079000" />
       <workItem from="1604421840331" duration="5696000" />
-      <workItem from="1604483871798" duration="10217000" />
+      <workItem from="1604483871798" duration="11337000" />
+      <workItem from="1604586068527" duration="7434000" />
     </task>
     <servers />
   </component>
